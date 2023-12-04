@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Kanit', sans-serif, FontAwesome;
+}
+
+/* Color Palette */
+$redCrayola: #ED254E;
+$naplesYellow: #F9DC5C;
+$teaGreen: #C2EABD;
+$oxfordBlue: #011936;
+$Charcoal: #465362;
+
+body {
+    background-color: $oxfordBlue;   
+    .navMenu {
+        text-align: center;
+        padding: 0.5rem;     
+        .active { color: #ED254E; text-shadow: 0px 0px 8px rgba(237, 37, 78, 1); }       
+        a {
+            color: white;
+            font-size: 16px; text-decoration: none; text-transform: uppercase;  
+            padding: 0 1em; border-right: 2px dotted $redCrayola;         
+            transition: all 0.2s ease-in-out;
+            &:last-child { border-right: 0; }
+            &:hover { color: $redCrayola; }
+        }
+    }
+
+    .container, .filter-properties, .filter-preview, .filter-code {
+        display: flex; align-items: center; justify-content: center; flex-wrap: wrap; flex-direction: row;
+    }
+    .container {
+        min-height: 90vh; gap: 15px;
+        .card {            
+            width: auto; max-width: 700px; min-width: 450px; height: auto; position: relative;
+            padding: 1em; border-radius: 10px; box-shadow: 0px 0px 5px 5px $Charcoal;
+            background-color: $teaGreen; text-align: center;
+
+            #title {
+                font-size: 15px; font-weight: bold;
+                color: $oxfordBlue; user-select: none;
+            }
+            span { cursor: default; user-select: none; }
+
+            .filter-properties {
+                margin: 5px 0;
+                .column {
+                    width: 50%; height: auto; //height: 128px;
+                    padding: 5px; border-radius: 5px; 
+                    background-color: $redCrayola; color: white; border: 2px solid $oxfordBlue; 
+                    &:first-child { border-right: 0; border-bottom: 0; border-radius: 5px 0 0 0; }
+                    &:nth-child(2) { border-radius: 0 5px 0 0; border-left: 2px dotted $oxfordBlue; border-bottom: 0;}
+
+                    .input-group {                        
+                        align-items: center; justify-content: center; flex-wrap: nowrap;    
+                        border-bottom: 2px dotted $oxfordBlue; padding: 5px 0;
+                                                
+                        label {      
+                            width: 78px; min-width: fit-content; height: 25px;
+                            font-size: 15px;
+                            border-radius: 5px !important; margin: 0;
+                        }   
+                        .form-range {
+                            width: 50%; height: 25px; cursor: pointer;  
+                            margin-inline: 5px !important;                                                                     
+                        }
+                        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+                            -webkit-appearance: none; margin: 0;
+                        }
+                        input[type = number] {
+                            width: 25px; height: 25px;
+                            appearance: none; -moz-appearance: textfield;
+                            text-align: center; font-size: 9px;
+                            border: 0; margin: 0 !important; border-radius: 5px !important;
+                        }  
+                        span {
+                            width: 18px;
+                            font-size: 10px; margin-left: 5px !important;
+                        }
+                        button {
+                            width: 65%; min-width: fit-content; height: 25px;
+                            font-size: 12px; line-height: 1;
+                            background-color: $Charcoal; border-color: white;
+                            border-radius: 5px !important; margin-left: 5px !important;
+                            &:hover { background-color: black; }
+                        }
+                        &:last-child {
+                            border-bottom: 0; 
+                        }
+                    }                   
+                    &:last-child {
+                        width: 100%; height: auto;
+                        border-radius: 0 0 5px 5px; border-top: 2px dotted $oxfordBlue;                        
+
+                        .input-group { gap: 3px;  }
+                        label {
+                            width: 100px; height: 25px;
+                            border: 0; margin: 0; 
+                        }
+                        input {
+                            width: 80px !important; min-width: 60px; height: 25px;
+                            margin: 0; border-radius: 5px !important;
+                            appearance: initial !important; border: 1px solid $oxfordBlue !important;
+                            font-size: 18px; text-align: center;
+                            &::placeholder { font-size: 9px; }                            
+                        }
+                        input[type = color] {                             
+                            appearance: none; -webkit-appearance: none; -moz-appearance: none;
+                            border: 0; background: transparent; transition: 0.25s;
+                            cursor: pointer;
+                            &:hover { scale: 1.05; }
+                            &::-webkit-color-swatch {
+                                border-radius: 5px; border: 1px solid white;
+                            }
+                            &::-moz-color-swatch {
+                                border-radius: 5px; border: 1px solid white;
+                            }
+                        }
+                    }                   
+                }
+            }
+
+            .filter-preview {          
+                position: relative; z-index: 99;
+                width: 100%;
+                padding: 0.5rem 0; border-radius: 5px;
+                background-color: $naplesYellow; border: 2px solid $oxfordBlue;
+                img {
+                    width: auto; height: 175px;
+                    border-radius: 5px; border: 1px solid $oxfordBlue;
+                }
+            }
+
+            .filter-code {
+                flex-wrap: nowrap;
+                margin-top: 5px;
+                .form-floating {
+                    width: 100%;
+                    textarea {
+                        height: fit-content;
+                        border: 2px solid $oxfordBlue; border-radius: 5px; cursor: copy;
+                        font-size: 14px; color: $oxfordBlue;      
+                        &::selection { background-color: $naplesYellow; }                  
+                    } 
+                    label { font-size: 14px; }
+                }
+                button {
+                    background-color: $redCrayola;
+                    margin-left: 5px; transition: 0.25s;
+                    &:hover { 
+                        background-color: var(--bs-btn-hover-bg); scale: 1.05;
+                    }
+                }
+            }
+        }
+    }
+}

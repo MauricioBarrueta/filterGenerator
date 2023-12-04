@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif, FontAwesome;
+}
+
+/* Color Palette */
+body {
+  background-color: #011936;
+}
+body .navMenu {
+  text-align: center;
+  padding: 0.5rem;
+}
+body .navMenu .active {
+  color: #ED254E;
+  text-shadow: 0px 0px 8px rgb(237, 37, 78);
+}
+body .navMenu a {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0 1em;
+  border-right: 2px dotted #ED254E;
+  transition: all 0.2s ease-in-out;
+}
+body .navMenu a:last-child {
+  border-right: 0;
+}
+body .navMenu a:hover {
+  color: #ED254E;
+}
+body .container, body .filter-properties, body .filter-preview, body .filter-code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+body .container {
+  min-height: 90vh;
+  gap: 15px;
+}
+body .container .card {
+  width: auto;
+  max-width: 700px;
+  min-width: 450px;
+  height: auto;
+  position: relative;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 5px #465362;
+  background-color: #C2EABD;
+  text-align: center;
+}
+body .container .card #title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #011936;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+body .container .card span {
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+body .container .card .filter-properties {
+  margin: 5px 0;
+}
+body .container .card .filter-properties .column {
+  width: 50%;
+  height: auto;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #ED254E;
+  color: white;
+  border: 2px solid #011936;
+}
+body .container .card .filter-properties .column:first-child {
+  border-right: 0;
+  border-bottom: 0;
+  border-radius: 5px 0 0 0;
+}
+body .container .card .filter-properties .column:nth-child(2) {
+  border-radius: 0 5px 0 0;
+  border-left: 2px dotted #011936;
+  border-bottom: 0;
+}
+body .container .card .filter-properties .column .input-group {
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  border-bottom: 2px dotted #011936;
+  padding: 5px 0;
+}
+body .container .card .filter-properties .column .input-group label {
+  width: 78px;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  height: 25px;
+  font-size: 15px;
+  border-radius: 5px !important;
+  margin: 0;
+}
+body .container .card .filter-properties .column .input-group .form-range {
+  width: 50%;
+  height: 25px;
+  cursor: pointer;
+  margin-inline: 5px !important;
+}
+body .container .card .filter-properties .column .input-group input::-webkit-outer-spin-button, body .container .card .filter-properties .column .input-group input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+body .container .card .filter-properties .column .input-group input[type=number] {
+  width: 25px;
+  height: 25px;
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: textfield;
+  text-align: center;
+  font-size: 9px;
+  border: 0;
+  margin: 0 !important;
+  border-radius: 5px !important;
+}
+body .container .card .filter-properties .column .input-group span {
+  width: 18px;
+  font-size: 10px;
+  margin-left: 5px !important;
+}
+body .container .card .filter-properties .column .input-group button {
+  width: 65%;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  height: 25px;
+  font-size: 12px;
+  line-height: 1;
+  background-color: #465362;
+  border-color: white;
+  border-radius: 5px !important;
+  margin-left: 5px !important;
+}
+body .container .card .filter-properties .column .input-group button:hover {
+  background-color: black;
+}
+body .container .card .filter-properties .column .input-group:last-child {
+  border-bottom: 0;
+}
+body .container .card .filter-properties .column:last-child {
+  width: 100%;
+  height: auto;
+  border-radius: 0 0 5px 5px;
+  border-top: 2px dotted #011936;
+}
+body .container .card .filter-properties .column:last-child .input-group {
+  gap: 3px;
+}
+body .container .card .filter-properties .column:last-child label {
+  width: 100px;
+  height: 25px;
+  border: 0;
+  margin: 0;
+}
+body .container .card .filter-properties .column:last-child input {
+  width: 80px !important;
+  min-width: 60px;
+  height: 25px;
+  margin: 0;
+  border-radius: 5px !important;
+  -webkit-appearance: initial !important;
+     -moz-appearance: initial !important;
+          appearance: initial !important;
+  border: 1px solid #011936 !important;
+  font-size: 18px;
+  text-align: center;
+}
+body .container .card .filter-properties .column:last-child input::-moz-placeholder {
+  font-size: 9px;
+}
+body .container .card .filter-properties .column:last-child input::placeholder {
+  font-size: 9px;
+}
+body .container .card .filter-properties .column:last-child input[type=color] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 0;
+  background: transparent;
+  transition: 0.25s;
+  cursor: pointer;
+}
+body .container .card .filter-properties .column:last-child input[type=color]:hover {
+  scale: 1.05;
+}
+body .container .card .filter-properties .column:last-child input[type=color]::-webkit-color-swatch {
+  border-radius: 5px;
+  border: 1px solid white;
+}
+body .container .card .filter-properties .column:last-child input[type=color]::-moz-color-swatch {
+  border-radius: 5px;
+  border: 1px solid white;
+}
+body .container .card .filter-preview {
+  position: relative;
+  z-index: 99;
+  width: 100%;
+  padding: 0.5rem 0;
+  border-radius: 5px;
+  background-color: #F9DC5C;
+  border: 2px solid #011936;
+}
+body .container .card .filter-preview img {
+  width: auto;
+  height: 175px;
+  border-radius: 5px;
+  border: 1px solid #011936;
+}
+body .container .card .filter-code {
+  flex-wrap: nowrap;
+  margin-top: 5px;
+}
+body .container .card .filter-code .form-floating {
+  width: 100%;
+}
+body .container .card .filter-code .form-floating textarea {
+  height: -moz-fit-content;
+  height: fit-content;
+  border: 2px solid #011936;
+  border-radius: 5px;
+  cursor: copy;
+  font-size: 14px;
+  color: #011936;
+}
+body .container .card .filter-code .form-floating textarea::-moz-selection {
+  background-color: #F9DC5C;
+}
+body .container .card .filter-code .form-floating textarea::selection {
+  background-color: #F9DC5C;
+}
+body .container .card .filter-code .form-floating label {
+  font-size: 14px;
+}
+body .container .card .filter-code button {
+  background-color: #ED254E;
+  margin-left: 5px;
+  transition: 0.25s;
+}
+body .container .card .filter-code button:hover {
+  background-color: var(--bs-btn-hover-bg);
+  scale: 1.05;
+}/*# sourceMappingURL=styles.css.map */
