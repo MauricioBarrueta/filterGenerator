@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/scss/styles.css">
+    <title>Style Generator: filter</title>
+    <link rel="icon" type="image/x-icon" href="src/img/favicon.ico">
+</head>
+<body>
+    <nav class="navMenu">
+        <a href="https://mauriciobarrueta.github.io/boxShadowGenerator/">Box Shadow</a>
+        <a href="https://mauriciobarrueta.github.io/textShadowGenerator/">Text Shadow</a>
+        <a href="https://mauriciobarrueta.github.io/borderGenerator/">Border</a>
+        <a href="https://mauriciobarrueta.github.io/borderRadiusGenerator/">Border Radius</a>
+        <a href="https://mauriciobarrueta.github.io/transformGenerator/">CSS Transform</a>
+        <a class="active">Image Filter</a>
+        <a href="https://mauriciobarrueta.github.io/gradientBgGenerator/">CSS Gradient</a>
+        <a href="#">Color Picker</a>
+      </nav>
+
+    <div class="container">
+        <div class="card">
+            <span id="title">Personaliza las funciones de la propiedad 'filter' y copia el código dando clic en el botón:</span>
+            <div class="filter-properties">
+                <div class="column">
+                    <div class="input-group">
+                        <label for="fBlur" class="form-label">blur:</label>
+                        <input type="range" class="form-range" min="0" max="50" step="1" value="5" id="fBlur" oninput="blurRange.value=fBlur.value">
+                        <input type="number" id="blurRange" min="0" max="50" step="1" value="5" oninput="fBlur.value=blurRange.value"><span>px</span>
+                    </div>  
+                    <div class="input-group">
+                        <label for="fCont" class="form-label">contrast:</label>
+                        <input type="range" class="form-range" min="0" max="300" step="1" value="5" id="fCont" oninput="contRange.value=fCont.value">
+                        <input type="number" id="contRange" min="0" max="300" step="1" value="5" oninput="fCont.value=contRange.value"><span>%</span>
+                    </div> 
+                    <div class="input-group">
+                        <label for="fgrayScale" class="form-label">grayscale:</label>
+                        <input type="range" class="form-range" min="0" max="100" step="1" value="5" id="fgrayScale" oninput="gsRange.value=fgrayScale.value">
+                        <input type="number" id="gsRange" min="0" max="100" step="1" value="5" oninput="fgrayScale.value=gsRange.value"><span>%</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="fInvert" class="form-label">invert:</label>
+                        <input type="range" class="form-range" min="0" max="100" step="1" value="5" id="fInvert" oninput="invertRange.value=fInvert.value">
+                        <input type="number" id="invertRange" min="0" max="100" step="1" value="5" oninput="fInvert.value=invertRange.value"><span>%</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="fSat" class="form-label">saturate:</label>
+                        <input type="range" class="form-range" min="0" max="100" step="1" value="5" id="fSat" oninput="satuRange.value=fSat.value">
+                        <input type="number" id="satuRange" min="0" max="100" step="1" value="5" oninput="fSat.value=satuRange.value"><span>no.</span>
+                    </div>      
+                </div>
+                <div class="column">
+                    <div class="input-group">
+                        <label for="fBrig" class="form-label">brightness:</label>
+                        <input type="range" class="form-range" min="0" max="300" step="1" value="5" id="fBrig" oninput="brigRange.value=fBrig.value">
+                        <input type="number" id="brigRange" min="0" max="300" step="1" value="5" oninput="fBrig.value=brigRange.value"><span>%</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="fHue" class="form-label">hue-rotate:</label>
+                        <input type="range" class="form-range" min="0" max="360" step="1" value="5" id="fHue" oninput="hueRange.value=fHue.value">
+                        <input type="number" id="hueRange" min="0" max="360" step="1" value="5" oninput="fHue.value=hueRange.value"><span>deg</span>
+                    </div> 
+                    <div class="input-group">
+                        <label for="fOpa" class="form-label">opacity:</label>
+                        <input type="range" class="form-range" min="0" max="1" step="0.05" value="1" id="fOpa" oninput="opacityRange.value=fOpa.value">
+                        <input type="number" id="opacityRange" min="0" max="1" step="0.05" value="1" oninput="fOpa.value=opacityRange.value"><span>no.</span>
+                    </div> 
+                    <div class="input-group">
+                        <label for="fSepia" class="form-label">sepia:</label>
+                        <input type="range" class="form-range" min="0" max="100" step="1" value="5" id="fSepia" oninput="sepiaRange.value=fSepia.value">
+                        <input type="number" id="sepiaRange" min="0" max="100" step="1" value="5" oninput="fSepia.value=sepiaRange.value"><span>%</span>
+                    </div>  
+                    <div class="input-group">
+                        <label type="text" class="form-label" aria-describedby="filterNone">none:</label>
+                        <button class="btn btn-dark" type="button" id="filterNone">Restablecer valores &#xf2f9;</button>
+                      </div>
+                      
+                </div>
+                <div class="column">
+                    <div class="input-group">
+                        <label class="form-label">drop-shadow:</label>
+                        <input type="number" id="hShadow" min="-100" max="100" step="1" placeholder="Horizontal">
+                        <input type="number" id="vShadow" min="-100" max="100" step="1" placeholder="Vertical">
+                        <input type="number" id="bShadow" min="0" max="100" step="1" placeholder="Blur">
+                        <input type="color" id="dsColor" value="#000000">
+                    </div>                       
+                </div>
+            </div>
+
+            <div class="filter-preview">
+                <img src="src/img/preview.webp" class="preview" alt="">
+            </div>
+            
+            <div class="filter-code">
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="CSS-code" readonly></textarea>
+                    <label for="CSS-code">El código CSS se genera automáticamente:</label>
+                </div>
+                <button class="btn btn-danger copy-btn" title="Copiar código">&#xf0c5;</button>
+            </div> 
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="src/js/main.js"></script>
+</body>
+</html>
