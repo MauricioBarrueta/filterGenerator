@@ -13,7 +13,7 @@ $oxfordBlue: #011936;
 $Charcoal: #465362;
 
 body {
-    background-color: $oxfordBlue; padding: 1em;
+    background-color: $oxfordBlue; 
     .navMenu {
         text-align: center;
         padding: 0.5rem;     
@@ -32,7 +32,7 @@ body {
         display: flex; align-items: center; justify-content: center; flex-wrap: wrap; flex-direction: row;
     }
     .container {
-        min-height: 90vh; gap: 15px;
+        min-height: 90vh; gap: 15px; padding: 1em;
         .card {            
             width: auto; max-width: 700px; min-width: 450px; height: auto; position: relative;
             padding: 1em; border-radius: 10px; box-shadow: 0px 0px 5px 5px $Charcoal;
