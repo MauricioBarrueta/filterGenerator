@@ -9,7 +9,7 @@ const blurVal = document.getElementById('fBlur'), contrastVal = document.getElem
     cShadow = document.getElementById('dsColor')
 
 const inputElements = document.querySelectorAll('.column input'), filterPreview = document.querySelector('.preview'), cssCode = document.getElementById('CSS-code'),
-    copyBtn = document.querySelector('copy-btn')
+    copyBtn = document.querySelector('.copy-btn')
 
 window.onload = () => {
     resetElements()
