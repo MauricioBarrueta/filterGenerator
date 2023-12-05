@@ -8,7 +8,8 @@ const blurVal = document.getElementById('fBlur'), contrastVal = document.getElem
     hShadow = document.getElementById('hShadow'), vShadow = document.getElementById('vShadow'), bShadow = document.getElementById('bShadow'), 
     cShadow = document.getElementById('dsColor')
 
-const inputElements = document.querySelectorAll('.column input'), filterPreview = document.querySelector('.preview'), cssCode = document.getElementById('CSS-code')
+const inputElements = document.querySelectorAll('.column input'), filterPreview = document.querySelector('.preview'), cssCode = document.getElementById('CSS-code'),
+    copyBtn = document.querySelector('copy-btn')
 
 window.onload = () => {
     resetElements()
@@ -46,3 +47,9 @@ const resetElements = () => {
     cShadow.value = '#000000'
     filterPreview.style.filter = '', cssCode.value = ''
 }
+
+copyBtn.addEventListener('click', () => {
+    cssCode.select()
+    cssCode.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(cssCode.value)
+})
