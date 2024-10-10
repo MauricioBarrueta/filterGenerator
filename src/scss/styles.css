@@ -33,7 +33,7 @@ body .navMenu a:last-child {
 body .navMenu a:hover {
   color: #ED254E;
 }
-body .container, body .filter-properties, body .filter-preview, body .filter-code {
+body .container, body .filter-properties, body .filter-preview, body .filter-code, body .upload-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,7 +45,7 @@ body .container {
   gap: 15px;
   padding: 1em;
 }
-body .container .card {
+body .container .card, body .container .filter-preview {
   width: auto;
   max-width: 700px;
   min-width: 450px;
@@ -57,7 +57,7 @@ body .container .card {
   background-color: #C2EABD;
   text-align: center;
 }
-body .container .card #title {
+body .container .card #title, body .container .filter-preview #title {
   font-size: 15px;
   font-weight: bold;
   color: #011936;
@@ -65,16 +65,16 @@ body .container .card #title {
      -moz-user-select: none;
           user-select: none;
 }
-body .container .card span {
+body .container .card span, body .container .filter-preview span {
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
 }
-body .container .card .filter-properties {
+body .container .card .filter-properties, body .container .filter-preview .filter-properties {
   margin: 5px 0;
 }
-body .container .card .filter-properties .column {
+body .container .card .filter-properties .column, body .container .filter-preview .filter-properties .column {
   width: 50%;
   height: auto;
   padding: 5px;
@@ -83,24 +83,24 @@ body .container .card .filter-properties .column {
   color: white;
   border: 2px solid #011936;
 }
-body .container .card .filter-properties .column:first-child {
+body .container .card .filter-properties .column:first-child, body .container .filter-preview .filter-properties .column:first-child {
   border-right: 0;
   border-bottom: 0;
   border-radius: 5px 0 0 0;
 }
-body .container .card .filter-properties .column:nth-child(2) {
+body .container .card .filter-properties .column:nth-child(2), body .container .filter-preview .filter-properties .column:nth-child(2) {
   border-radius: 0 5px 0 0;
   border-left: 2px dotted #011936;
   border-bottom: 0;
 }
-body .container .card .filter-properties .column .input-group {
+body .container .card .filter-properties .column .input-group, body .container .filter-preview .filter-properties .column .input-group {
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: nowrap;
   border-bottom: 2px dotted #011936;
   padding: 5px 0;
 }
-body .container .card .filter-properties .column .input-group label {
+body .container .card .filter-properties .column .input-group label, body .container .filter-preview .filter-properties .column .input-group label {
   width: 78px;
   min-width: -moz-fit-content;
   min-width: fit-content;
@@ -109,34 +109,59 @@ body .container .card .filter-properties .column .input-group label {
   border-radius: 5px !important;
   margin: 0;
 }
-body .container .card .filter-properties .column .input-group .form-range {
+body .container .card .filter-properties .column .input-group .form-range, body .container .filter-preview .filter-properties .column .input-group .form-range {
   width: 50%;
   height: 25px;
   cursor: pointer;
   margin-inline: 5px !important;
 }
-body .container .card .filter-properties .column .input-group input::-webkit-outer-spin-button, body .container .card .filter-properties .column .input-group input::-webkit-inner-spin-button {
+body .container .card .filter-properties .column .input-group input::-webkit-outer-spin-button, body .container .card .filter-properties .column .input-group input::-webkit-inner-spin-button, body .container .filter-preview .filter-properties .column .input-group input::-webkit-outer-spin-button, body .container .filter-preview .filter-properties .column .input-group input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-body .container .card .filter-properties .column .input-group input[type=number] {
+body .container .card .filter-properties .column .input-group input[type=number], body .container .filter-preview .filter-properties .column .input-group input[type=number] {
   width: 25px;
   height: 25px;
   -webkit-appearance: none;
           appearance: none;
   -moz-appearance: textfield;
-  text-align: center;
-  font-size: 9px;
   border: 0;
   margin: 0 !important;
   border-radius: 5px !important;
+  text-align: center;
+  font-size: 9px;
 }
-body .container .card .filter-properties .column .input-group span {
+body .container .card .filter-properties .column .input-group #hShadow, body .container .card .filter-properties .column .input-group #vShadow, body .container .card .filter-properties .column .input-group #bShadow, body .container .filter-preview .filter-properties .column .input-group #hShadow, body .container .filter-preview .filter-properties .column .input-group #vShadow, body .container .filter-preview .filter-properties .column .input-group #bShadow {
+  width: 35px;
+}
+body .container .card .filter-properties .column .input-group input[type=color], body .container .filter-preview .filter-properties .column .input-group input[type=color] {
+  width: 40px;
+  height: 25px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 0;
+  background: transparent;
+  transition: 0.25s;
+  cursor: pointer;
+}
+body .container .card .filter-properties .column .input-group input[type=color]:hover, body .container .filter-preview .filter-properties .column .input-group input[type=color]:hover {
+  scale: 1.05;
+}
+body .container .card .filter-properties .column .input-group input[type=color]::-webkit-color-swatch, body .container .filter-preview .filter-properties .column .input-group input[type=color]::-webkit-color-swatch {
+  border-radius: 5px;
+  border: 1px solid white;
+}
+body .container .card .filter-properties .column .input-group input[type=color]::-moz-color-swatch, body .container .filter-preview .filter-properties .column .input-group input[type=color]::-moz-color-swatch {
+  border-radius: 5px;
+  border: 1px solid white;
+}
+body .container .card .filter-properties .column .input-group span, body .container .filter-preview .filter-properties .column .input-group span {
   width: 18px;
   font-size: 10px;
   margin-left: 5px !important;
 }
-body .container .card .filter-properties .column .input-group button {
+body .container .card .filter-properties .column .input-group button, body .container .filter-preview .filter-properties .column .input-group button {
   width: 65%;
   min-width: -moz-fit-content;
   min-width: fit-content;
@@ -148,112 +173,88 @@ body .container .card .filter-properties .column .input-group button {
   border-radius: 5px !important;
   margin-left: 5px !important;
 }
-body .container .card .filter-properties .column .input-group button:hover {
+body .container .card .filter-properties .column .input-group button:hover, body .container .filter-preview .filter-properties .column .input-group button:hover {
   background-color: black;
 }
-body .container .card .filter-properties .column .input-group:last-child {
+body .container .card .filter-properties .column .input-group:last-child, body .container .filter-preview .filter-properties .column .input-group:last-child {
   border-bottom: 0;
 }
-body .container .card .filter-properties .column:last-child {
+body .container .card .filter-properties .column:last-child, body .container .filter-preview .filter-properties .column:last-child {
   width: 100%;
   height: auto;
+  padding: 2px 0;
   border-radius: 0 0 5px 5px;
   border-top: 2px dotted #011936;
 }
-body .container .card .filter-properties .column:last-child .input-group {
-  gap: 3px;
+body .container .card .filter-properties .column:last-child button, body .container .filter-preview .filter-properties .column:last-child button {
+  width: 25%;
+  padding: 5px 10px;
 }
-body .container .card .filter-properties .column:last-child label {
-  width: 100px;
-  height: 25px;
-  border: 0;
-  margin: 0;
-}
-body .container .card .filter-properties .column:last-child input {
-  width: 80px !important;
-  min-width: 60px;
-  height: 25px;
-  margin: 0;
-  border-radius: 5px !important;
-  -webkit-appearance: initial !important;
-     -moz-appearance: initial !important;
-          appearance: initial !important;
-  border: 1px solid #011936 !important;
-  font-size: 18px;
-  text-align: center;
-}
-body .container .card .filter-properties .column:last-child input::-moz-placeholder {
-  font-size: 9px;
-}
-body .container .card .filter-properties .column:last-child input::placeholder {
-  font-size: 9px;
-}
-body .container .card .filter-properties .column:last-child input[type=color] {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border: 0;
-  background: transparent;
-  transition: 0.25s;
-  cursor: pointer;
-}
-body .container .card .filter-properties .column:last-child input[type=color]:hover {
-  scale: 1.05;
-}
-body .container .card .filter-properties .column:last-child input[type=color]::-webkit-color-swatch {
-  border-radius: 5px;
-  border: 1px solid white;
-}
-body .container .card .filter-properties .column:last-child input[type=color]::-moz-color-swatch {
-  border-radius: 5px;
-  border: 1px solid white;
-}
-body .container .card .filter-preview {
-  position: relative;
-  z-index: 99;
-  width: 100%;
-  padding: 0.5rem 0;
-  border-radius: 5px;
-  background-color: #F9DC5C;
-  border: 2px solid #011936;
-}
-body .container .card .filter-preview img {
-  width: auto;
-  height: 175px;
-  border-radius: 5px;
-  border: 1px solid #011936;
-}
-body .container .card .filter-code {
+body .container .card .filter-code, body .container .filter-preview .filter-code {
   flex-wrap: nowrap;
   margin-top: 5px;
 }
-body .container .card .filter-code .form-floating {
+body .container .card .filter-code .form-floating, body .container .filter-preview .filter-code .form-floating {
   width: 100%;
 }
-body .container .card .filter-code .form-floating textarea {
-  height: -moz-fit-content;
-  height: fit-content;
+body .container .card .filter-code .form-floating textarea, body .container .filter-preview .filter-code .form-floating textarea {
+  height: 150px;
   border: 2px solid #011936;
   border-radius: 5px;
   cursor: copy;
   font-size: 14px;
   color: #011936;
 }
-body .container .card .filter-code .form-floating textarea::-moz-selection {
+body .container .card .filter-code .form-floating textarea::-moz-selection, body .container .filter-preview .filter-code .form-floating textarea::-moz-selection {
   background-color: #F9DC5C;
 }
-body .container .card .filter-code .form-floating textarea::selection {
+body .container .card .filter-code .form-floating textarea::selection, body .container .filter-preview .filter-code .form-floating textarea::selection {
   background-color: #F9DC5C;
 }
-body .container .card .filter-code .form-floating label {
+body .container .card .filter-code .form-floating label, body .container .filter-preview .filter-code .form-floating label {
   font-size: 14px;
 }
-body .container .card .filter-code button {
+body .container .card .filter-code button, body .container .filter-preview .filter-code button {
   background-color: #ED254E;
   margin-left: 5px;
   transition: 0.25s;
 }
-body .container .card .filter-code button:hover {
+body .container .card .filter-code button:hover, body .container .filter-preview .filter-code button:hover {
   background-color: var(--bs-btn-hover-bg);
   scale: 1.05;
+}
+body .container .filter-preview {
+  min-width: 350px;
+  width: 350px;
+  position: relative;
+  z-index: 99;
+}
+body .container .filter-preview #preview {
+  max-width: 350px;
+  height: 300px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 5px;
+  padding: 0.5rem;
+  border: 2px solid #011936;
+  background-color: #F9DC5C;
+}
+body .container .filter-preview .upload-button {
+  width: 100%;
+  cursor: pointer;
+  margin: 10px 0 auto;
+  border-radius: 5px;
+  border: 2px dotted transparent;
+  transition: 0.3s;
+}
+body .container .filter-preview .upload-button:hover {
+  border-color: #011936;
+}
+body .container .filter-preview .upload-button #upload-img {
+  font-size: 12px;
+  font-weight: bold;
+}
+body .container .filter-preview .upload-button #upload-img:active {
+  border-color: transparent;
+  background-color: transparent;
 }/*# sourceMappingURL=styles.css.map */
