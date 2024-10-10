@@ -6,11 +6,7 @@
 }
 
 /* Color Palette */
-$redCrayola: #ED254E;
-$naplesYellow: #F9DC5C;
-$teaGreen: #C2EABD;
-$oxfordBlue: #011936;
-$Charcoal: #465362;
+$redCrayola: #ED254E; $naplesYellow: #F9DC5C; $teaGreen: #C2EABD; $oxfordBlue: #011936; $Charcoal: #465362;
 
 body {
     background-color: $oxfordBlue; 
@@ -21,19 +17,18 @@ body {
         a {
             color: white;
             font-size: 16px; text-decoration: none; text-transform: uppercase;  
-            padding: 0 1em; border-right: 2px dotted $redCrayola;         
-            transition: all 0.2s ease-in-out;
+            padding: 0 1em; border-right: 2px dotted $redCrayola; transition: all 0.2s ease-in-out;
             &:last-child { border-right: 0; }
             &:hover { color: $redCrayola; }
         }
     }
 
-    .container, .filter-properties, .filter-preview, .filter-code {
+    .container, .filter-properties, .filter-preview, .filter-code, .upload-button {
         display: flex; align-items: center; justify-content: center; flex-wrap: wrap; flex-direction: row;
     }
     .container {
         min-height: 90vh; gap: 15px; padding: 1em;
-        .card {            
+        .card, .filter-preview {            
             width: auto; max-width: 700px; min-width: 450px; height: auto; position: relative;
             padding: 1em; border-radius: 10px; box-shadow: 0px 0px 5px 5px $Charcoal;
             background-color: $teaGreen; text-align: center;
@@ -47,38 +42,36 @@ body {
             .filter-properties {
                 margin: 5px 0;
                 .column {
-                    width: 50%; height: auto; //height: 128px;
-                    padding: 5px; border-radius: 5px; 
-                    background-color: $redCrayola; color: white; border: 2px solid $oxfordBlue; 
+                    width: 50%; height: auto; 
+                    padding: 5px; border-radius: 5px; background-color: $redCrayola; color: white; border: 2px solid $oxfordBlue; 
                     &:first-child { border-right: 0; border-bottom: 0; border-radius: 5px 0 0 0; }
-                    &:nth-child(2) { border-radius: 0 5px 0 0; border-left: 2px dotted $oxfordBlue; border-bottom: 0;}
-
+                    &:nth-child(2) { border-radius: 0 5px 0 0; border-left: 2px dotted $oxfordBlue; border-bottom: 0; }
                     .input-group {                        
-                        align-items: center; justify-content: center; flex-wrap: nowrap;    
-                        border-bottom: 2px dotted $oxfordBlue; padding: 5px 0;
-                                                
+                        align-items: center; justify-content: space-evenly; flex-wrap: nowrap;    
+                        border-bottom: 2px dotted $oxfordBlue; padding: 5px 0;                                                
                         label {      
                             width: 78px; min-width: fit-content; height: 25px;
-                            font-size: 15px;
-                            border-radius: 5px !important; margin: 0;
+                            font-size: 15px; border-radius: 5px !important; margin: 0;
                         }   
                         .form-range {
                             width: 50%; height: 25px; cursor: pointer;  
                             margin-inline: 5px !important;                                                                     
                         }
-                        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
-                            -webkit-appearance: none; margin: 0;
-                        }
+                        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
                         input[type = number] {
                             width: 25px; height: 25px;
-                            appearance: none; -moz-appearance: textfield;
+                            appearance: none; -moz-appearance: textfield; border: 0; margin: 0 !important; border-radius: 5px !important;
                             text-align: center; font-size: 9px;
-                            border: 0; margin: 0 !important; border-radius: 5px !important;
                         }  
-                        span {
-                            width: 18px;
-                            font-size: 10px; margin-left: 5px !important;
+                        #hShadow, #vShadow, #bShadow { width: 35px; }
+                        input[type = color] {                             
+                            width: 40px; height: 25px; appearance: none; -webkit-appearance: none; -moz-appearance: none;
+                            border: 0; background: transparent; transition: 0.25s; cursor: pointer;
+                            &:hover { scale: 1.05; }
+                            &::-webkit-color-swatch { border-radius: 5px; border: 1px solid white; }
+                            &::-moz-color-swatch { border-radius: 5px; border: 1px solid white; }
                         }
+                        span { width: 18px; font-size: 10px; margin-left: 5px !important; }
                         button {
                             width: 65%; min-width: fit-content; height: 25px;
                             font-size: 12px; line-height: 1;
@@ -86,60 +79,21 @@ body {
                             border-radius: 5px !important; margin-left: 5px !important;
                             &:hover { background-color: black; }
                         }
-                        &:last-child {
-                            border-bottom: 0; 
-                        }
+                        &:last-child { border-bottom: 0; }
                     }                   
                     &:last-child {
                         width: 100%; height: auto;
-                        border-radius: 0 0 5px 5px; border-top: 2px dotted $oxfordBlue;                        
-
-                        .input-group { gap: 3px;  }
-                        label {
-                            width: 100px; height: 25px;
-                            border: 0; margin: 0; 
-                        }
-                        input {
-                            width: 80px !important; min-width: 60px; height: 25px;
-                            margin: 0; border-radius: 5px !important;
-                            appearance: initial !important; border: 1px solid $oxfordBlue !important;
-                            font-size: 18px; text-align: center;
-                            &::placeholder { font-size: 9px; }                            
-                        }
-                        input[type = color] {                             
-                            appearance: none; -webkit-appearance: none; -moz-appearance: none;
-                            border: 0; background: transparent; transition: 0.25s;
-                            cursor: pointer;
-                            &:hover { scale: 1.05; }
-                            &::-webkit-color-swatch {
-                                border-radius: 5px; border: 1px solid white;
-                            }
-                            &::-moz-color-swatch {
-                                border-radius: 5px; border: 1px solid white;
-                            }
-                        }
+                        padding: 2px 0; border-radius: 0 0 5px 5px; border-top: 2px dotted $oxfordBlue;         
+                        button { width: 25%; padding: 5px 10px; }       
                     }                   
                 }
-            }
-
-            .filter-preview {          
-                position: relative; z-index: 99;
-                width: 100%;
-                padding: 0.5rem 0; border-radius: 5px;
-                background-color: $naplesYellow; border: 2px solid $oxfordBlue;
-                img {
-                    width: auto; height: 175px;
-                    border-radius: 5px; border: 1px solid $oxfordBlue;
-                }
-            }
-
+            }            
             .filter-code {
-                flex-wrap: nowrap;
-                margin-top: 5px;
+                flex-wrap: nowrap;  margin-top: 5px;
                 .form-floating {
                     width: 100%;
                     textarea {
-                        height: fit-content;
+                        height: 150px;
                         border: 2px solid $oxfordBlue; border-radius: 5px; cursor: copy;
                         font-size: 14px; color: $oxfordBlue;      
                         &::selection { background-color: $naplesYellow; }                  
@@ -149,9 +103,25 @@ body {
                 button {
                     background-color: $redCrayola;
                     margin-left: 5px; transition: 0.25s;
-                    &:hover { 
-                        background-color: var(--bs-btn-hover-bg); scale: 1.05;
-                    }
+                    &:hover { background-color: var(--bs-btn-hover-bg); scale: 1.05; }
+                }
+            }
+        }
+
+        .filter-preview {          
+            min-width: 350px; width: 350px; position: relative; z-index: 99;              
+            #preview {
+                max-width: 350px; height: 300px; object-fit: contain;
+                border-radius: 5px; padding: 0.5rem; border: 2px solid $oxfordBlue;
+                background-color: $naplesYellow; 
+            }
+            .upload-button {
+                width: 100%; cursor: pointer;
+                margin: 10px 0 auto; border-radius: 5px; border: 2px dotted transparent; transition: .3s;
+                &:hover { border-color: $oxfordBlue; }  
+                #upload-img { 
+                    font-size: 12px; font-weight: bold; 
+                    &:active { border-color: transparent; background-color: transparent; }              
                 }
             }
         }

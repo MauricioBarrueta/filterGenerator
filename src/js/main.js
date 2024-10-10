@@ -1,15 +1,12 @@
-const blurVal = document.getElementById('fBlur'), contrastVal = document.getElementById('fCont'), 
-    contrastRange = document.getElementById('contRange'), gsVal = document.getElementById('fgrayScale'), 
-    invertVal = document.getElementById('fInvert'), saturateVal = document.getElementById('fSat'), 
-    saturateRange = document.getElementById('satuRange'), brightVal = document.getElementById('fBrig'), 
-    brightnessRange = document.getElementById('brigRange'), hueRotVal = document.getElementById('fHue'),     
-    opacityVal = document.getElementById('fOpa'), opacityRange = document.getElementById('opacityRange'),
-    sepiaVal = document.getElementById('fSepia'), noneButton = document.getElementById('filterNone'),
-    hShadow = document.getElementById('hShadow'), vShadow = document.getElementById('vShadow'), bShadow = document.getElementById('bShadow'), 
-    cShadow = document.getElementById('dsColor')
-
+const blurVal = document.getElementById('fBlur'), contrastVal = document.getElementById('fCont'), contrastRange = document.getElementById('contRange'), 
+    gsVal = document.getElementById('fgrayScale'), invertVal = document.getElementById('fInvert'), saturateVal = document.getElementById('fSat'), 
+    saturateRange = document.getElementById('satuRange'), brightVal = document.getElementById('fBrig'), brightnessRange = document.getElementById('brigRange'), 
+    hueRotVal = document.getElementById('fHue'), opacityVal = document.getElementById('fOpa'), opacityRange = document.getElementById('opacityRange'),
+    sepiaVal = document.getElementById('fSepia'), resetBtn = document.getElementById('filterNone'), hShadow = document.getElementById('hShadow'), 
+    vShadow = document.getElementById('vShadow'), bShadow = document.getElementById('bShadow'), cShadow = document.getElementById('dsColor')
 const inputElements = document.querySelectorAll('.column input'), filterPreview = document.querySelector('.preview'), cssCode = document.getElementById('CSS-code'),
     copyBtn = document.querySelector('.copy-btn')
+let code
 
 window.onload = () => {
     resetElements()
@@ -17,12 +14,9 @@ window.onload = () => {
 }
 
 inputElements.forEach(element => {
-    element.addEventListener('input', () => {        
-        generateFilterProperties()        
-    })
+    element.addEventListener('input', () => { generateFilterProperties() })
 });
 
-let code
 const generateFilterProperties = () => {   
     let blur = blurVal.value == 0 ? '' : `blur(${blurVal.value}px)`, contrast = contrastVal.value == 100 ? '' : ` contrast(${contrastVal.value}%)`,
         grayScale = gsVal.value  == 0 ? '' : ` grayscale(${gsVal.value}%)`, invert = invertVal.value == 0 ? '' : ` invert(${invertVal.value}%)`,
@@ -36,15 +30,24 @@ const generateFilterProperties = () => {
     filterPreview.style.filter = code   
 }
 
+/* Para cargar una imagen .png, .jpeg o .webp y asignarla al atributo 'src' de la imagen 'preview' */
+const uploadInput = document.getElementById('file')
+document.getElementById('upload-img').addEventListener('click', () => { uploadInput.click() });
+
+uploadInput.onchange = function() {
+    var imageFile = this.files[0];
+    var url = window.URL.createObjectURL(imageFile);
+    filterPreview.src = url;
+}
+
 /* Remueve el/los filtros de la imagen y resetea los elementos */
-noneButton.addEventListener('click', () => { resetElements() })
+resetBtn.addEventListener('click', () => { resetElements() })
 
 const resetElements = () => {
     inputElements.forEach(element => { element.value = 0 });
     brightVal.value = brightnessRange.value = contrastVal.value = contrastRange.value = 100
     saturateVal.value = saturateRange.value = opacityVal.value = opacityRange.value = 1
-    vShadow.value = hShadow.value = bShadow.value = '0'
-    cShadow.value = '#000000'
+    vShadow.value = hShadow.value = bShadow.value = '0', cShadow.value = '#000000'
     filterPreview.style.filter = '', cssCode.value = ''
 }
 
