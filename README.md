@@ -4,4 +4,5 @@
 
 🔗 https://mauriciobarrueta.github.io/filterGenerator/
 
-![filter](https://github.com/user-attachments/assets/ab27f4fc-f2bf-44d5-ac50-407da0f32750)
+
+<img width="1366" height="653" alt="filter" src="https://github.com/user-attachments/assets/700312c1-aab6-40f6-bc83-ad6a8d76de28" />
